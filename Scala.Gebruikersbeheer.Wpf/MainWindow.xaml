@@ -1,0 +1,68 @@
+﻿<Window x:Class="Scala.Gebruikersbeheer.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Scala.Gebruikersbeheer.Wpf"
+        mc:Ignorable="d"
+        Title="Gebruikerstoegang" Height="714" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Gebruikers">
+                <Grid >
+                    <GroupBox x:Name="grpOverzichtGebruikers"  Height="638"   Width="305" Margin="10,10,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top">
+                        <Grid>
+                            <Button x:Name="btnGebruikerToevoegen" Content="Nieuw" HorizontalAlignment="Left" Height="28" Margin="10,10,0,0" VerticalAlignment="Top" Width="73" Click="btnGebruikerToevoegen_Click"/>
+                            <Button x:Name="btnGebruikerWijzigen" Content="Wijzig" HorizontalAlignment="Left" Height="28" Margin="88,10,0,0" VerticalAlignment="Top" Width="73" Click="btnGebruikerWijzigen_Click"/>
+                            <Button x:Name="btnGebruikerVerwijderen" Content="Verwijder" HorizontalAlignment="Left" Height="28" Margin="166,10,0,0" VerticalAlignment="Top" Width="73" Click="btnGebruikerVerwijderen_Click"/>
+                            <ListBox x:Name="lstGebruikers" HorizontalAlignment="Center" Height="563" Margin="0,58,0,0" VerticalAlignment="Top" Width="273" SelectionChanged="lstGebruikers_SelectionChanged"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="grpDetailGebruiker" HorizontalAlignment="Left" Height="297" Margin="331,10,0,0" VerticalAlignment="Top" Width="453">
+                        <Grid>
+                            <Button x:Name="btnGebruikerBewaren" Content="Bewaren" HorizontalAlignment="Left" Height="28" Margin="10,10,0,0" VerticalAlignment="Top" Width="73" Click="btnGebruikerBewaren_Click"/>
+                            <Button x:Name="btnGebruikerAnnuleren" Content="Annuleren" HorizontalAlignment="Left" Height="28" Margin="88,10,0,0" VerticalAlignment="Top" Width="73" Click="btnGebruikerAnnuleren_Click"/>
+                            <Label Content="Gebruikersnaam : " HorizontalAlignment="Left" Height="27" Margin="10,57,0,0" VerticalAlignment="Top" Width="125"/>
+                            <Label Content="Voornaam : " HorizontalAlignment="Left" Height="27" Margin="10,89,0,0" VerticalAlignment="Top" Width="125"/>
+                            <Label Content="Familienaam : " HorizontalAlignment="Left" Height="27" Margin="10,121,0,0" VerticalAlignment="Top" Width="125"/>
+                            <Label Content="E-mail : " HorizontalAlignment="Left" Height="27" Margin="10,153,0,0" VerticalAlignment="Top" Width="125"/>
+                            <Label Content="Telefoon : " HorizontalAlignment="Left" Height="27" Margin="10,185,0,0" VerticalAlignment="Top" Width="125"/>
+                            <TextBox x:Name="txtGebruikersnaam" HorizontalAlignment="Left" Height="27" Margin="140,57,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="291"/>
+                            <TextBox x:Name="txtVoornaam" HorizontalAlignment="Left" Height="27" Margin="140,89,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="291"/>
+                            <TextBox x:Name="txtFamilienaam" HorizontalAlignment="Left" Height="27" Margin="140,121,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="291"/>
+                            <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="27" Margin="140,153,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="291"/>
+                            <TextBox x:Name="txtTelefoon" HorizontalAlignment="Left" Height="27" Margin="140,185,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="291"/>
+                            <Label Content="Paswoord : " HorizontalAlignment="Left" Height="27" Margin="10,217,0,0" VerticalAlignment="Top" Width="125"/>
+                            <TextBox x:Name="txtPaswoord" HorizontalAlignment="Left" Height="27" Margin="140,217,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="291"/>
+                            <Label x:Name="lblPaswoordInfo" Content="Leeg laten om paswoord ongewijzigd te laten" HorizontalAlignment="Left" Height="31" Margin="140,249,0,0" VerticalAlignment="Top" Width="291"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox x:Name="grpToegangGebruiker" HorizontalAlignment="Left" Height="336" Margin="331,312,0,0" VerticalAlignment="Top" Width="453">
+                        <Grid>
+                            <Label Content="Heeft toegang tot" HorizontalAlignment="Left" Height="29" Margin="10,10,0,0" VerticalAlignment="Top" Width="124"/>
+                            <Label Content="Heeft GEEN toegang tot" HorizontalAlignment="Left" Height="29" Margin="258,10,0,0" VerticalAlignment="Top" Width="168"/>
+                            <ListBox x:Name="lstToegangTot" HorizontalAlignment="Left" Height="275" Margin="10,44,0,0" VerticalAlignment="Top" Width="178"/>
+                            <ListBox x:Name="lstGeenToegangTot" HorizontalAlignment="Left" Height="275" Margin="253,44,0,0" VerticalAlignment="Top" Width="178"/>
+                            <Button x:Name="btnToegangVerlenen" Content="&lt;" HorizontalAlignment="Center" Height="46" Margin="0,91,0,0" VerticalAlignment="Top" Width="35" Background="ForestGreen" Foreground="White" FontSize="16pt" FontWeight="ExtraBold" Click="btnToegangVerlenen_Click"/>
+                            <Button x:Name="btnToegangOntnemen" Content="&gt;" HorizontalAlignment="Center" Height="46" Margin="0,156,0,0" VerticalAlignment="Top" Width="35" Background="Tomato" Foreground="White" FontSize="16pt" FontWeight="ExtraBold" Click="btnToegangOntnemen_Click"/>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Onderdelen">
+                <Grid >
+                    <Label Content="Alle onderdelen" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <ListBox x:Name="lstAlleOnderdelen" HorizontalAlignment="Left" Height="597" Margin="10,41,0,0" VerticalAlignment="Top" Width="235" SelectionChanged="lstAlleOnderdelen_SelectionChanged"/>
+                    <Label Content="Gebruikers MET toegang" HorizontalAlignment="Left" Margin="280,10,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Gebruikers ZONDER toegang" HorizontalAlignment="Left" Margin="549,10,0,0" VerticalAlignment="Top" Width="178"/>
+                    <ListBox x:Name="lstGebruikersMetToegang" HorizontalAlignment="Center" Height="597" Margin="0,41,0,0" VerticalAlignment="Top" Width="224"/>
+                    <ListBox x:Name="lstGebruikersZonderToegang" HorizontalAlignment="Left" Height="597" Margin="554,41,0,0" VerticalAlignment="Top" Width="230"/>
+                    <Button x:Name="btnGebruikerRechtToekennen" Content="&lt;" HorizontalAlignment="Left" Height="46" Margin="514,145,0,0" VerticalAlignment="Top" Width="35" Background="ForestGreen" Foreground="White" FontSize="16pt" FontWeight="ExtraBold" Click="btnGebruikerRechtToekennen_Click"/>
+                    <Button x:Name="btnGebruikerRechtOntnemen" Content="&gt;" HorizontalAlignment="Left" Height="46" Margin="514,205,0,0" VerticalAlignment="Top" Width="35" Background="Tomato" Foreground="White" FontSize="16pt" FontWeight="ExtraBold" Click="btnGebruikerRechtOntnemen_Click"/>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
