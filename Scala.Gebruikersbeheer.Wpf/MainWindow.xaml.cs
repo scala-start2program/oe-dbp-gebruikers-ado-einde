@@ -171,7 +171,7 @@ namespace Scala.Gebruikersbeheer.Wpf
                 gebruiker = (Gebruiker)lstGebruikers.SelectedItem;
                 if(gebruikersnaam.ToUpper() != gebruiker.Gebruikersnaam.ToUpper())
                 {
-                    if(gebruikersService.IsGebruikersnaamUniek(gebruikersnaam))
+                    if(!gebruikersService.IsGebruikersnaamUniek(gebruikersnaam))
                     {
                         MessageBox.Show("Deze gebruikersnaam is reeds in gebruik !", "Fout", MessageBoxButton.OK, MessageBoxImage.Warning);
                         txtGebruikersnaam.Focus();
@@ -205,6 +205,9 @@ namespace Scala.Gebruikersbeheer.Wpf
                 gebruiker.Gebruikersnaam = gebruikersnaam;
                 gebruiker.Voornaam = voornaam;
             }
+            PopulateGebruikers();
+            BeeldNormaal();
+            lstGebruikers_SelectionChanged(null, null);
         }
 
         private void btnToegangVerlenen_Click(object sender, RoutedEventArgs e)
